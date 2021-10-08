@@ -9,7 +9,7 @@ long count = 0;
 
 static Node *insertNode(Node *cur, long x){
     //x is the value of node
-    Node *temp;
+    Node *temp = NULL;
     temp = (Node *)malloc(sizeof(Node));
     temp -> value = x;
     temp -> next = NULL;
@@ -128,7 +128,7 @@ static Node *moveNode(Node *start, long k){
 
 //The function to swap node when gap > 1
 static Node *swapGapNodeP2(Node *temp, long k){
-    Node *next1, *p1, *p2, *prev2, *prev1;
+    Node *next1 = NULL, *p1 = NULL, *p2 = NULL, *prev2 = NULL, *prev1 = NULL;
     prev1 = temp;
     p1 = prev1 -> next;
     next1 = p1 -> next;
@@ -174,7 +174,7 @@ Node *List_Shellsort(Node *list, long *n_comp){
             for(i=0; i<size-interval; i++){
                 swap = 0;
                 temp = &prevHead;
-                for(j=0; j<size-interval; j+=interval){
+                for(j=i; j<size-interval; j+=interval){
                     temp = swapGapNodeP2(temp, interval);
                 }
                 if(!swap) break;              
