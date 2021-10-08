@@ -30,7 +30,7 @@ long *Array_Load_From_File(char *filename, int *size){
     //Start reading
     *size = (fread(content, 1, fileSize, fp))/8;
     fclose(fp);
-    return (int64_t*)content;
+    return (long*)content;
 }
 
 int Array_Save_To_File(char *filename, long *array, int size){
